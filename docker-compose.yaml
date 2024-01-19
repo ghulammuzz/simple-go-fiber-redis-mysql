@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  redis:
+    image: "redis:7.2.0"
+    container_name: "redis-sync"
+    ports:
+      - "6379:6379"
+
+  mysql:
+    image:  "mysql:8.0.33"
+    container_name: "mysql-sync"
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_DATABASE: "syncsb"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+    ports:
+      - "3306:3306"
